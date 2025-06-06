@@ -1,19 +1,19 @@
-const handleSuccess = (res, data, statusCode = 200) => {
-    res.status(statusCode).json({
-        status: 'success',
-        data
-    });
-};
+class ResponseHandler {
+    static success(res, statusCode, message, data = null) {
+        return res.status(statusCode).json({
+            success: true,
+            message,
+            data
+        });
+    }
 
-const handleError = (res, error) => {
-    const statusCode = error.statusCode || 500;
-    res.status(statusCode).json({
-        status: 'error',
-        message: error.message
-    });
-};
+    static error(res, error) {
+        const statusCode = error.statusCode || 500;
+        return res.status(statusCode).json({
+            success: false,
+            message: error.message || 'Internal server error'
+        });
+    }
+}
 
-module.exports = {
-    handleSuccess,
-    handleError
-};
+module.exports = { responseHandler: ResponseHandler };

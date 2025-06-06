@@ -1,4 +1,4 @@
-const Permission = require('../models/permission');
+const Permission = require('../models/permissionModel');
 const { ForbiddenError } = require('../utils/errors');
 const { ERROR_MESSAGES } = require('../constants');
 

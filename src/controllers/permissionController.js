@@ -1,4 +1,4 @@
-const permissionService = require('../services/permissions');
+const permissionService = require('../services/permissionsService');
 
 const getAllPermissions = async (req, res) => {
     try {

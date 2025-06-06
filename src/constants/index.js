@@ -5,7 +5,8 @@ const PERMISSIONS = {
         PRODUCTS: 'products',
         ORDERS: 'orders',
         CUSTOMERS: 'customers',
-        REPORTS: 'reports'
+        REPORTS: 'reports',
+        COMPANIES: 'companies'
     },
     ACTIONS: {
         VIEW: 'view',
@@ -21,7 +22,9 @@ const ERROR_MESSAGES = {
     USER_NOT_FOUND: 'User not found',
     INVALID_PASSWORD: 'Invalid password',
     UNAUTHORIZED: 'Unauthorized access',
-    PERMISSION_DENIED: 'Permission denied'
+    PERMISSION_DENIED: 'Permission denied',
+    COMPANY_NOT_FOUND: 'Company not found',
+    COMPANY_EXISTS: 'Company already exists'
 };
 
 module.exports = {

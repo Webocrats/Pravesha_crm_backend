@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const { verifyToken } = require('../middleware/auth');
-const { checkPermission } = require('../middleware/permissions');
+const { verifyToken } = require('../middleware/authMiddleware');
+const { checkPermission } = require('../middleware/permissionsMiddleware');
 const {
     getAllPermissions,
     getPages,

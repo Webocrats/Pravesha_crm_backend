@@ -49,11 +49,20 @@ const updateUserPermissions = async (userId, permissions) => {
             [userId]
         );
 
+        // Validate permissions before insertion
+        const validPermissions = permissions.filter(p => 
+            p && p.permission_id && p.granted != null
+        );
+
+        if (validPermissions.length === 0) {
+            throw new Error('No valid permissions provided');
+        }
+
         // Insert new permissions
-        for (const perm of permissions) {
+        for (const perm of validPermissions) {
             await connection.execute(
                 'INSERT INTO user_permissions (user_id, permission_id, granted) VALUES (?, ?, ?)',
-                [userId, perm.permission_id, perm.granted]
+                [userId, perm.permission_id, perm.granted ? 1 : 0]
             );
         }
 
